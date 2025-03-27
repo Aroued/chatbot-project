@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "campingbot-fdhn",
+  "private_key_id": "63b04e573cc8c1be501ce53771b50dcdf4bd17ad",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC4QulsZyx+7sof\nxP4wgJ1EEKrzlMcIvK0qU6YPWHppcyYJKlxmsLkeLT6tTtoqawUiFeLJzKq8yLI2\nI3qlCarM92PgZ0+vgJOyKw6MAEnZ2u9Ey1lIiDf13WRhrCgJEE97yTRyT95KeFaC\nXJ3lnuPBdeDzi2brfn7INPrPDMiDPOekxobOyFvFq4RC1aeEx1T+cWomqNHyGtcv\nUc4/FG8NIU4b6Nz+lt1ETmGQhQ+spA5AZIkLToqN8cF4LLko7YqzzJe5ne7+t9rq\nOj1sPuG0+0MY2rJYxBfZWKsXPSzgkJ1utMEdY/NcdylNyslTREbC+ySjQ2s2/86X\nbwWYfx4TAgMBAAECggEAG4W7EfsTNV57iGVHRn1fgDQxJLL7S73K68CU1EP1/Nw7\nOTE/ngMVk4FUlFRr19wmZyH3vwa4FfywSc/g2Nfp0DW/kFw+FcvRw9IUmSrN3SGL\nja4GBwR5v1qzTLeHP1tVU/sIv25YmK0C1vP4jby+7j2qPRZ8Z/5793GaaOTS6m8k\nRbPvMo99HDVw/ZjCSv+EKC+VEAX0Icb99BiqwXAm4bopXy0dptBUUq+UIz4wCNMn\nPOm57G/E3ExCr4fn4wrx5YFEaqYbB1qaN8ukz/o9ffaRBQ4wErHUIhw1ksMOGSp+\nX/uGJ16rYf1PaBQO9mC/llkk2/wii/aoQjLU4ccL8QKBgQDvbM2SVuwZ8vi5ltnw\niVPx6Mn0QAig6UOxL5/MCmAIaQWJDAXNR/tApZjHq3K4IsQBXHKDDLL7IQ+ekwvq\nBce69An+YlASlvlgJElkWJkkVZ6lRsHGoPij1s4Ww8BV798cMl1bRHxKjlZrm7EC\nZZoWKE2QxLPI4GMLqB+ckcnYawKBgQDFBHljmbWCPir66792wn9Bg3I8MbUHzNhO\nX/hVrf/JySNnTIvgMoP+PoaPBTQmIzLEUULI0jxwOXc6aTSYWcHPAUrTZnVif+sA\nSz17pXE9pEvhOUl0hWcc+nOS94wxwne4qkKT0y6rAseNkPRGOVRcTSUcsTbIVZZL\n0S5TfMJa+QKBgQCnPHeHHWIDahzj/YOzqSjSk4jlLAka5HSdAif7LNARb9Im/Rfc\nYMgWStUhuxcBmX8ReFKgSTGHintPh2TODUWKx8VnQ6KsqXn89ruw9NXbdFbBGWBm\n7q9eOb9wVUE2hbtxBZkCFB9BMJUaywBkLTXo/jPXyB3QVTO5w7B4+7hiiwKBgEI8\nU9cxaP1liyuasF7r2r6aw4ALMhJyQtJun12mxtT/I0DqUihIs2l5eeGBXVvo/3tS\n2oILdDhCiZwAnKcPngHLLG3QB2zbFpWdtgjowR55Ku2IRfK/mr/6T3q8cMyV1Ywm\n6YUrPYhOweoNLqKhSYRSh0STK5jEdWf95nY4/lp5AoGBANFYzPP8ayvGfGMyVnNv\n5pj/5CoC7dQ583RJ4jEdhtT8BJAJ8XjrKrxrAJ4K945BdvmDORxG/KSiK+0sRvsR\nbIjIJ0cStT+9QaRdfyK5bVRaoN5EA+VCk/n4bwEn0sGtmKySPDqNTRBGwNZDzg44\ni1tCuj/TxeoQ3zX9p52r1imC\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-service-account@campingbot-fdhn.iam.gserviceaccount.com",
+  "client_id": "104353695191971191887",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-service-account%40campingbot-fdhn.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
