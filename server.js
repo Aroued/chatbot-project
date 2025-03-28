@@ -3,21 +3,24 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { SessionsClient } = require('@google-cloud/dialogflow');
 const { v4: uuidv4 } = require('uuid');
+require('dotenv').config(); // Load environment variables
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Use dynamic port for Vercel
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname)); // Serve static files
 
-const sessionClient = new SessionsClient();
-const projectId = 'campingbot-fdhn';
+const sessionClient = new SessionsClient({ keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS });
+const projectId = process.env.DIALOGFLOW_PROJECT_ID || 'campingbot-fdhn';
 const languageCode = 'en';
 
+// Serve frontend (if necessary)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html')); // Serve HTML file
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Handle chatbot messages
 app.post('/send-message', async (req, res) => {
     const userMessage = req.body.message;
     const sessionId = uuidv4();
@@ -44,6 +47,5 @@ app.post('/send-message', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+// Export for Vercel
+module.exports = app;
