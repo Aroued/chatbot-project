@@ -1,154 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .chat-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #0084ff;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 24px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .chat-container {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 320px;
-            background: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            display: none;
-            flex-direction: column;
-        }
-        .chat-header {
-            background: #0084ff;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            font-weight: bold;
-        }
-        .chat-body {
-            padding: 10px;
-            height: 250px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-        }
-        .chat-message {
-            padding: 8px 12px;
-            border-radius: 10px;
-            margin: 5px 0;
-            max-width: 70%;
-            word-wrap: break-word;
-            font-size: 14px;
-        }
-        .user-message {
-            background: #0084ff;
-            color: white;
-            align-self: flex-end;
-            text-align: right;
-            border-bottom-right-radius: 0;
-        }
-        .bot-message {
-            background: #f1f0f0;
-            color: black;
-            align-self: flex-start;
-            text-align: left;
-            border-bottom-left-radius: 0;
-        }
-        .chat-footer {
-            display: flex;
-            border-top: 1px solid #ddd;
-            padding: 5px;
-        }
-        .chat-footer input {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .chat-footer button {
-            background: #0084ff;
-            color: white;
-            border: none;
-            padding: 8px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-    <div class="chat-icon" onclick="toggleChat()">✉️</div>
-    <div class="chat-container" id="chatbox">
-        <div class="chat-header">Chatbot</div>
-        <div class="chat-body" id="chat-body"></div>
-        <div class="chat-footer">
-            <input type="text" id="message" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
+<script>
+    async function sendMessage() {
+        const messageInput = document.getElementById('message');
+        const chatBody = document.getElementById('chat-body');
+        const message = messageInput.value.trim();
+        if (!message) return;
+        
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('chat-message', 'user-message');
+        userMessage.innerText = message;
+        chatBody.appendChild(userMessage);
+        
+        messageInput.value = '';
+        
+        // FIXED: Replace with your actual Vercel backend URL
+        const res = await fetch('https://chatbotcamp.vercel.app/send-message', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
 
-    <script>
-        function toggleChat() {
-            const chatbox = document.getElementById('chatbox');
-            chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-                event.preventDefault();
-            }
-        }
-
-        async function sendMessage() {
-            const messageInput = document.getElementById('message');
-            const chatBody = document.getElementById('chat-body');
-            const message = messageInput.value.trim();
-            if (!message) return;
-            
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('chat-message', 'user-message');
-            userMessage.innerText = message;
-            chatBody.appendChild(userMessage);
-            
-            messageInput.value = '';
-            
-            const res = await fetch('/send-message', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
-            });
-            const data = await res.json();
-            
-            const botMessage = document.createElement('div');
-            botMessage.classList.add('chat-message', 'bot-message');
-            botMessage.innerText = data.reply;
-            chatBody.appendChild(botMessage);
-            
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-    </script>
-</body>
-</html>
+        const data = await res.json();
+        
+        const botMessage = document.createElement('div');
+        botMessage.classList.add('chat-message', 'bot-message');
+        botMessage.innerText = data.reply;
+        chatBody.appendChild(botMessage);
+        
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+</script>
